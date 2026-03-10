@@ -1,6 +1,7 @@
-import { Box, Typography, List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
+import { Box, List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined'
 import { useNavigate, useLocation } from 'react-router-dom'
+import flugoLogo from '../../prints/logo_flugo.png'
 
 const SIDEBAR_WIDTH = 240
 
@@ -25,26 +26,17 @@ export default function Sidebar() {
       }}
     >
       {/* Logo */}
-      <Box sx={{ px: 2.5, py: 2.5, display: 'flex', alignItems: 'center', gap: 1 }}>
+      <Box sx={{ px: 2.5, py: 2.5, display: 'flex', alignItems: 'center' }}>
         <Box
+          component="img"
+          src={flugoLogo}
+          alt="Flugo"
           sx={{
-            width: 28,
-            height: 28,
-            borderRadius: '6px',
-            background: 'linear-gradient(135deg, #2DB564 0%, #28A45C 100%)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: '#fff',
-            fontSize: 14,
-            fontWeight: 800,
+            width: 106,
+            height: 'auto',
+            display: 'block',
           }}
-        >
-          F
-        </Box>
-        <Typography variant="h6" fontWeight={700} fontSize={18} color="#1A1A1A">
-          Flugo
-        </Typography>
+        />
       </Box>
 
       {/* Navigation */}

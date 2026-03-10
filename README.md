@@ -2,7 +2,7 @@
 
 Formulário multi-step para cadastro de colaboradores, desenvolvido com **ReactJS + TypeScript**, **Material UI** e **Firebase Firestore**, seguindo o protótipo Figma fornecido.
 
-## ✨ Funcionalidades
+## Funcionalidades
 
 - **Dashboard** com tabela de colaboradores (Nome, Email, Departamento, Status)
 - **Ordenação** por qualquer coluna clicando no cabeçalho
@@ -17,7 +17,7 @@ Formulário multi-step para cadastro de colaboradores, desenvolvido com **ReactJ
 - **Badges** coloridos de status (Ativo / Inativo)
 - **Avatares** com iniciais e cores automáticas
 
-## 🛠️ Tecnologias
+## Tecnologias
 
 - [React 18](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
 - [Material UI v6](https://mui.com/)
@@ -26,7 +26,7 @@ Formulário multi-step para cadastro de colaboradores, desenvolvido com **ReactJ
 - [React Router v6](https://reactrouter.com/)
 - [Vite](https://vitejs.dev/)
 
-## 🚀 Como rodar localmente
+## Como rodar localmente
 
 ### Pré-requisitos
 
@@ -97,7 +97,7 @@ service cloud.firestore {
 }
 ```
 
-> ⚠️ Regras com `if true` são apenas para desenvolvimento/teste. Em produção, adicione autenticação.
+> Regras com `if true` são apenas para desenvolvimento/teste. Em produção, adicione autenticação.
 
 ### 4. Inicie o servidor de desenvolvimento
 
@@ -115,7 +115,7 @@ npm run build
 
 Os arquivos otimizados serão gerados na pasta `dist/`.
 
-## 🌐 Deploy na Vercel
+## Deploy na Vercel
 
 1. Acesse [vercel.com](https://vercel.com/) e conecte sua conta GitHub
 2. Importe o repositório **Agua**

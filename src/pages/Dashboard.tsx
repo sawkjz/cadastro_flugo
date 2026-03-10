@@ -100,6 +100,7 @@ export default function Dashboard() {
           onClick={() => navigate('/colaboradores/novo')}
           sx={{
             bgcolor: '#2DB564',
+            color: '#fff',
             '&:hover': { bgcolor: '#27A058' },
             borderRadius: '8px',
             px: 3,
@@ -109,6 +110,7 @@ export default function Dashboard() {
             fontSize: 14,
             boxShadow: 'none',
             '&:active': { boxShadow: 'none' },
+            '& .MuiButton-startIcon': { color: '#fff' },
           }}
         >
           Novo Colaborador

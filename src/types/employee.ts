@@ -3,7 +3,12 @@ export interface Colaborador {
   titulo: string
   email: string
   ativoAoCriar: boolean
-  departamento: string
+  departamentoId: string
+  cargo: string
+  dataAdmissao: string
+  nivelHierarquico: 'junior' | 'pleno' | 'senior' | 'gestor'
+  gestorResponsavelId: string
+  salarioBase: number
   criadoEm?: unknown
 }
 
@@ -14,5 +19,10 @@ export interface BasicInfoData {
 }
 
 export interface ProfessionalInfoData {
-  departamento: string
+  departamentoId: string
+  cargo: string
+  dataAdmissao: string
+  nivelHierarquico: 'junior' | 'pleno' | 'senior' | 'gestor'
+  gestorResponsavelId: string
+  salarioBase: number
 }

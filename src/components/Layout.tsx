@@ -1,13 +1,27 @@
-import { Box, Avatar } from '@mui/material'
-import { Outlet } from 'react-router-dom'
+import { useState } from 'react'
+import { Box, Avatar, Menu, MenuItem, ListItemIcon, ListItemText } from '@mui/material'
+import LogoutIcon from '@mui/icons-material/Logout'
+import { Outlet, useNavigate } from 'react-router-dom'
 import Sidebar, { SIDEBAR_WIDTH } from './Sidebar'
+import { useAuth } from '../contexts/AuthContext'
 
 export default function Layout() {
+  const { logout, user } = useAuth()
+  const navigate = useNavigate()
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
+
+  async function handleLogout() {
+    setAnchorEl(null)
+    await logout()
+    navigate('/login')
+  }
+
+  const initial = user?.email?.charAt(0).toUpperCase() || 'U'
+
   return (
     <Box sx={{ display: 'flex', minHeight: '100vh', bgcolor: '#FAFAFA' }}>
       <Sidebar />
 
-      {/* Main area */}
       <Box
         sx={{
           ml: `${SIDEBAR_WIDTH}px`,
@@ -17,7 +31,6 @@ export default function Layout() {
           minHeight: '100vh',
         }}
       >
-        {/* Top bar */}
         <Box
           sx={{
             display: 'flex',
@@ -30,19 +43,38 @@ export default function Layout() {
           }}
         >
           <Avatar
+            onClick={(e) => setAnchorEl(e.currentTarget)}
             sx={{
               width: 40,
               height: 40,
-              bgcolor: '#E0E0E0',
+              bgcolor: '#2DB564',
               fontSize: 16,
               cursor: 'pointer',
+              fontWeight: 600,
             }}
           >
-            U
+            {initial}
           </Avatar>
+          <Menu
+            anchorEl={anchorEl}
+            open={!!anchorEl}
+            onClose={() => setAnchorEl(null)}
+            PaperProps={{ sx: { borderRadius: '8px', mt: 1, minWidth: 160 } }}
+            transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+            anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+          >
+            <MenuItem onClick={handleLogout}>
+              <ListItemIcon>
+                <LogoutIcon fontSize="small" sx={{ color: '#E53535' }} />
+              </ListItemIcon>
+              <ListItemText
+                primary="Sair"
+                primaryTypographyProps={{ fontSize: 14, color: '#E53535', fontWeight: 500 }}
+              />
+            </MenuItem>
+          </Menu>
         </Box>
 
-        {/* Page content */}
         <Box sx={{ flex: 1, p: 4 }}>
           <Outlet />
         </Box>
